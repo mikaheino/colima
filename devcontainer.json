@@ -4,9 +4,6 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
   "postCreateCommand": "echo '✅ Container valmis – dbt, Snowflake CLI, Streamlit, Azure CLI ja Git asennettu!'",
   "customizations": {
     "vscode": {
