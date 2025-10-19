@@ -1,0 +1,38 @@
+{
+  "name": "recordly-snowflake-azure-dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "echo '✅ Container valmis – dbt, Snowflake CLI, Streamlit, Azure CLI ja Git asennettu!'",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-docker",
+        "ms-azuretools.azurecli",
+        "innoverio.vscode-dbt-power-user",
+        "mtxr.sqltools",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "workspaceFolder": "/workspace",
+  "remoteUser": "vscode",
+  "runArgs": [
+    "--network=host",
+    "--init",
+    "--privileged"
+  ]
+}
